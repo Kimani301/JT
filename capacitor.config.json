@@ -1,0 +1,10 @@
+{
+  "appId": "com.jimmytech.dashboard",
+  "appName": "JIMMY TECH",
+  "webDir": "www",
+  "backgroundColor": "#12395c",
+  "server": { "androidScheme": "https" },
+  "plugins": {
+    "SystemBars": { "insetsHandling": "css", "style": "DARK" }
+  }
+}

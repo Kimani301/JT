@@ -1,0 +1,50 @@
+{
+  "name": "jimmytech-dashboard",
+  "productName": "JIMMY TECH",
+  "version": "1.0.0",
+  "description": "JIMMY TECH shop dashboard",
+  "author": "JIMMY TECH",
+  "private": true,
+  "main": "electron/main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist:win": "electron-builder --win --publish never",
+    "cap:sync": "cap sync android"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.0.0",
+    "@capacitor/app": "^8.0.0",
+    "@capacitor/core": "^8.0.0",
+    "@capacitor/filesystem": "^8.0.0",
+    "@capacitor/share": "^8.0.0"
+  },
+  "devDependencies": {
+    "@capacitor/assets": "^3.0.5",
+    "@capacitor/cli": "^8.0.0",
+    "electron": "^42.0.0",
+    "electron-builder": "^26.4.1"
+  },
+  "build": {
+    "appId": "com.jimmytech.dashboard",
+    "productName": "JIMMY TECH",
+    "directories": { "output": "dist", "buildResources": "build" },
+    "files": ["electron/**", "www/**", "package.json"],
+    "win": {
+      "icon": "build/icon.png",
+      "target": [
+        { "target": "nsis", "arch": ["x64"] },
+        { "target": "portable", "arch": ["x64"] }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "JIMMY TECH",
+      "artifactName": "JIMMYTECH-Setup-${version}.${ext}"
+    },
+    "portable": { "artifactName": "JIMMYTECH-Portable-${version}.${ext}" }
+  }
+}
